@@ -12,7 +12,8 @@ import { CartService } from '../cart.service';
 export class ProductDetailsComponent implements OnInit {
   product;
 
-  constructor( private route: ActivatedRoute,  private cartService: CartService ) { }
+  constructor( private route: ActivatedRoute,  private cartService: CartService ) { 
+  }
 
   addToCart(product){
     window.alert('Your product has been added to the cart!');
@@ -23,5 +24,7 @@ export class ProductDetailsComponent implements OnInit {
       this.route.paramMap.subscribe( params => {
         this.product = products[params.get('productId')];
     });
+    // obtener parametro
+    console.log(this.route.snapshot.params.productId);
   }
 }
